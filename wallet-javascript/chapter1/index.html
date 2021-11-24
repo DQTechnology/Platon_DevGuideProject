@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo1</title>
+</head>
+
+<body>
+
+    <span id="balance"></span>
+
+    <!-- 因为当前是开发状态，因此使用web3.js -->
+    <script src="./web3.js"></script>
+    <script>
+        // 构建web3对象，这里的网址是PlatON的测试链地址
+        let web3 = new Web3(new Web3.providers.HttpProvider('http://35.247.155.162:6789'));
+
+        //笔者在测试链的钱包地址
+        let walletAddress = "lat1zrq89dhle45g78mm4j8aq3dq5m2shpu56ggc6e";
+        // 获取钱包地址
+        web3.platon.getBalance(walletAddress).then(res=>{
+
+            let balanceDom = document.getElementById("balance");
+            // 把余额转换为LAT
+            balanceDom.innerHTML = web3.utils.fromVon(res, "lat");
+        });
+
+    </script>
+</body>
+</html>

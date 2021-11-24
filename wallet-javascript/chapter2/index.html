@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo1</title>
+</head>
+
+<body>
+    <script src="./web3-eth-accounts.js"></script>
+    <script src="./web3.js"></script>
+    <script>
+        // 构建web3对象，这里的网址是PlatON的测试链地址
+        let platonWeb = new Web3(new Web3.providers.HttpProvider('http://35.247.155.162:6789'));
+
+        // // 1, 批量获取钱包的余额,以下为笔者准备的两个钱包地址
+         let addr1 = "lat1zrq89dhle45g78mm4j8aq3dq5m2shpu56ggc6e";
+         let addr2 = "lat1sc64spe34m4zt5mycf9njkvw7fg98g0uncwgsa";
+         // 2, 创建批量请求
+         let batch = new platonWeb.BatchRequest();
+         // 3，添加请求
+         batch.add(platonWeb.platon.getBalance.request(addr1, "latest",
+             (arg1, balance) => {
+
+                 // arg1 忽略
+                 console.log("arg1:" + arg1 + ", balance_1:" + balance);
+
+            }));
+         batch.add(platonWeb.platon.getBalance.request(addr2, "latest",
+             (arg1, balance) => {
+                 console.log("arg1:" + arg1 + ", balance_2:" + balance);
+             }));
+         // 执行请求
+         batch.execute();
+
+         // 获取当前链的地址前缀
+         platonWeb.platon.getAddressHrp().then(res => {
+             console.log(res);
+         });
+
+         // 获取当前gas的价格
+         platonWeb.platon.getGasPrice().then(res => {
+             console.log("von:" + res, "lat:" + platonWeb.utils.fromVon(res));
+         });
+
+         // 获取当前的块高
+         platonWeb.platon.getBlockNumber().then(res => {
+             console.log(res);
+         });
+
+        // // 获取指定块信息
+         platonWeb.platon.getBlock(6533257).then(res => {
+             console.log(res);
+         });
+        //   获取指定块交易数量
+         platonWeb.platon.getBlockTransactionCount(6533257).then(res => {
+             console.log(res);
+         });
+        // 获取地址的交易数量
+         platonWeb.platon.getBlockTransactionCount("0x0561ab627d3053c486a552e594f6b3f40f7acc2fd107866169feb34de346129b").then(res => {
+             console.log(res);
+         });
+
+        // 获取钱包地址的发出的交易数量
+         platonWeb.platon.getTransactionCount("lat1zrq89dhle45g78mm4j8aq3dq5m2shpu56ggc6e").then(res => {
+            console.log(res);
+        });
+
+
+        // 1, 第一个通过getTransactionCount获取当前账号的交易数量,用作nonce值
+        platonWeb.platon.getTransactionCount("lat1tgu6pts6nhmneu5zhqly3rc83r6y6ecfmde03e").then(nonce => {
+            // 2, 获取近期块的gasprice
+            platonWeb.platon.getGasPrice().then(gasPrice => {
+
+                // 3, 构建交易参数
+                let txData = {
+                    from: "lat1tgu6pts6nhmneu5zhqly3rc83r6y6ecfmde03e", //转账的钱包地址
+                    to: "lat1zrq89dhle45g78mm4j8aq3dq5m2shpu56ggc6e", // 接收转账的地址
+                    value: '10000000000000000000', //value的单位为von 从官网得知 1Lat = 1e18个VON, 这里转10lat
+                    chainId: "210309", // 链ID 从官网得知 测试链的id为 210309
+                    gasPrice: gasPrice, //每一步的费用
+                    gas: 21000, // 步数 就是gasLimit
+                    nonce: nonce,
+                    data: ""
+                };
+
+                // 4, 使用私钥对参数签名
+                platonWeb.platon.accounts.signTransaction(txData, "a4ac816da1ab40f805d026009247002f47c8c0a9af95b35ca9741c576466e1a8").then(signTxtData => {
+                    // 5, 调用接口把请求发送出去, 这里只需要发送rawTransaction
+                    platonWeb.platon.sendSignedTransaction(signTxtData.rawTransaction).then(res => {
+                        // 6, 使用 transactionHash值去查询发送情况
+                        platonWeb.platon.getTransactionReceipt(res.transactionHash).then(receipt => {
+                            console.log(receipt);
+                        });
+                    });
+                });
+
+            });
+        });
+
+    </script>
+</body>
+
+</html>
