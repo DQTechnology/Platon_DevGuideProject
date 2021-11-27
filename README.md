@@ -20,7 +20,7 @@ PlatON公链自运行以来，受到了越来越广泛的关注，随着公链�
 
 **1.《跟Dex学PlatON应用开发--钱包开发Javascript篇》**
 
-本篇需要大家掌握JavaScript以及vue3.0的基本用法。
+本篇需要大家掌握JavaScript以及vue2 + ElementUI的基本用法。
 - 第一章：讲解PlatON的client-sdk-js编译方法。然后查询指定钱包地址的余额。
 - 第二章：讲解SDK的基本使用方法。
 - 第三章：讲解Chrome插件开发的基本知识，模仿Samurai构建页面（1）
