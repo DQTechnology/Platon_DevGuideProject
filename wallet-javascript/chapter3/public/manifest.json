@@ -1,0 +1,28 @@
+{
+  
+    "manifest_version": 2,
+    "name": "DigDing",
+    "version": "1.0",
+    "description": "DigDing钱包",
+    "author": "DQTech",
+    "content_security_policy": "default-src 'self';script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline';img-src 'self' data: base64; connect-src *",
+    "icons": {
+        "48": "48.png"
+    },
+    "browser_action": {
+        "default_icon": "32.png",
+        "default_title": "DigDing",
+        "default_popup": "index.html"
+    },
+    "background": {
+        "scripts": [
+            "js/web3-eth-accounts.js",
+            "js/web3.js",
+            "js/background.js"
+        ]
+    },
+    "permissions": [
+        "tabs",
+        "storage"
+    ]
+}
