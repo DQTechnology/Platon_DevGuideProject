@@ -1,7 +1,7 @@
 &nbsp;&nbsp;上一章我们完成了环境的搭建，以及查询钱包的余额。这一章我们将讲解如何通过JavaScript调用常用的接口。
 &nbsp;&nbsp; 本章为了测试简单，所有输出都直接在控制一台打印。打开控制台的方法：在浏览器中按F12，弹出以下对话框，如下图：
 
-![微信图片_20211124221836|690x276](./image/233af2e6f6f992fd287a2963d9f2e19a121cd3c6.png) 
+![微信图片_20211124221836|690x276](upload://51F0xHaM8bX71qZ7WZZXpeCVI6a.png) 
 
 然后选择Console选项接口。
 ### 1，批量获取钱包余额--BatchRequest
@@ -58,7 +58,7 @@
 
 我们可以在控制台选择Network, 然后点击请求,在Payload这里看到,这个接口会把我们两个请求合并成一个Http请求发出去.然后在各自的callback下返回余额.
 结果如下图:
-![7b6214e53e7ca83579104dfe1e8dc7e|338x205](./image/077bf733422fd319944e05eeafeb88794aa207c4.png) 
+![7b6214e53e7ca83579104dfe1e8dc7e|338x205](upload://14cW7rQ8g50ARJ6GPpcdVqChtRy.png) 
 ### 2，获取当前链的地址前缀--getAddressHrp
 
 代码如下:
@@ -69,7 +69,7 @@
     });
 ```
 因为platon的钱包地址前缀为lat,所有这个接口获取到的值为lat
-![ed802b7a1eafdac3fbf20c0ccfc2ebf|274x118](./image/6f2a35b5cd017b011cba93809a574d330befb2f4.png) 
+![ed802b7a1eafdac3fbf20c0ccfc2ebf|274x118](upload://fRpqRE3FE2K1ENyI2WjCwdZ19Yw.png) 
 
 ### 3, 获取当前gas的价格 -- getGasPrice
 代码如下:
@@ -80,7 +80,7 @@
     });
 ```
 这个接口返回值的单位为VON, 如果获得lat的数量可以通过 web3.utils.fromVon函数进行转换.该值是由最近的若干块的中值决定的.可以作为我们设置gas的参考值.
-![bccab09a792c1d26a311f93b0341419|227x105](./image/79f73edb76402dcfa3c916bfc62cf2098513c3ed.png) 
+![bccab09a792c1d26a311f93b0341419|227x105](upload://hoXuGWwt3vwklCvpovOMp11iuo5.png) 
 ### 4, 获取当前块高 -- getBlockNumber
 
 代码如下:
@@ -101,7 +101,7 @@
         console.log(res);
     });
 ```
-![e8f53babe804b8bd429edc16d637790|690x297](./image/c9d831cf28a0eb34605a44eabb0ae6f835c3af3c.png) 
+![e8f53babe804b8bd429edc16d637790|690x297](upload://sNBajcdjqCCnRTLOgGrCxyB5mMs.png) 
 以下是官网返回字段的解释:
 
 - number - Number: 块编号，处于 pending 状态的块为 null, 因为我们查询的块编号为6533257, 因此这个值为6533257.
@@ -141,7 +141,7 @@ transactions为当前块所有交易哈希的数组,在我们的示例调用返�
         console.log(res);
     });
 ```
-![b168d2470934ac4fdff3dd31348714a|280x106](./image/84265f4bac32e38c519f4b32f9f9d769fad56cf5.png) 
+![b168d2470934ac4fdff3dd31348714a|280x106](upload://iR3eLSAJgIGidbyJ8ZochJqU7CB.png) 
 因为我们通过getBlock这个接口的返回值,已经知道该块为一个空块,因此可以看到返回的交易数量为0
 
 下面我们通过块的哈希值获取块的交易数量,上面我们通过getBlock接口获取到块6533257的哈希值为:0x0561ab627d3053c486a552e594f6b3f40f7acc2fd107866169feb34de346129b 我们把块编码更换为块的哈希值
@@ -169,7 +169,7 @@ platonWeb.platon.getTransactionCount("lat1zrq89dhle45g78mm4j8aq3dq5m2shpu56ggc6e
     });
 
 ```
-![b299549f5fc5c2470949855d32ce4d4|421x168](./image/3b12f4bfda2d0f652102ded05f6444f6d4f72790.png) 
+![b299549f5fc5c2470949855d32ce4d4|421x168](upload://8qAMBm46ln4FC8dkMqVHtVgIowM.png) 
 可以看到返回值为1255,我们到官网的浏览器查看,该地址的交易记录,地址为: https://devnetscan.platon.network/address-detailaddress=lat1zrq89dhle45g78mm4j8aq3dq5m2shpu56ggc6e 把页面拖动到最底部,看到我们的记录总数为1257条.![b0b6b050a31deea80687f210df8bcb2|642x159](upload://h715XPDFIw1IQswxdTk0iYWMXYX.png) 
  这好像多了2条记录.这是怎么回事呢?我们再看看这个接口的作用是什么,这个接口获取到的值是发出去的交易数量.我们在浏览器的交易记录里面发现,这个账号下有两笔接收转账的记录
 ![16255ec5c3f3a7bdcbbba773a27e28b|690x172](upload://ibYHjIgYE9XwLYMFT3kMM4Yg6bo.png) 
@@ -184,15 +184,15 @@ platonWeb.platon.getTransactionCount("lat1zrq89dhle45g78mm4j8aq3dq5m2shpu56ggc6e
 - 2, 到水龙头领取LAT,网址为: https://faucet.platon.network/faucet/?id=e5d32df10aee11ec911142010a667c03 领取成功后,我们可以在浏览器看到账号已经有200个LAT,地址如下:https://devnetscan.platon.network/address-detail?address=lat1tgu6pts6nhmneu5zhqly3rc83r6y6ecfmde03e
 
 - 3, 因为调用platon_sendRawTransaction我们需要sdk下的其他功能,因此我们需要编译出更多的组件.步骤和第一章编译sdk一样.我们首先进入client-sdk-js的目录,如下图:,
-![ca5bf02bfec412f61da94262ee15d7e|616x269](./image/77f00982d044155daa6928e9143ec1b366e9a5cf.png) 
+![ca5bf02bfec412f61da94262ee15d7e|616x269](upload://pSl3UtRYmP3L5clOrW0jRldP6ED.png) 
 在编译之前我们需要修改一个BUG. 打开文件 client-sdk-js/packages/web3-utils/src/utils.js,找到decodeBech32Address函数,然后在address之前加上var 关键字如下图:
-![45a280051b5d73e07e5fd11d1ad13a2|690x239](./image/7f81c895665104e16b65915f147ae09e8b4d959a.png) 
-![b0983ba243837eecd7b07c89c7c40af|631x334](./image/b55ad916213f61f89fbe6f8c8310ac6acf777147.png) 
+![45a280051b5d73e07e5fd11d1ad13a2|690x239](upload://9ZTPSYreHLaCDrNyipFCtbkvYTv.png) 
+![b0983ba243837eecd7b07c89c7c40af|631x334](upload://xILNZ6JOMz6fApWVBfwpKVcYZoi.png) 
 在当前目录下打开控制台, 然后输入npm run build-all 
-![a98953c3f327327b991c2b492f0e92e|612x120](./image/4612dcf272e3f1354eddcfa55118c3caf7da8d89.png) 
+![a98953c3f327327b991c2b492f0e92e|612x120](upload://zRyktyq4FFWAcjAzWCzdvE0JDOl.png) 
 编译的过程需要等下一下.执行完毕后如下图:
-![f99c4d1f80a11c59b155fd7a3bc3d76|690x226](./image/ec5756d0542cc36d3f997248ce49db4a34d1b696.png) 有些错误,不影响使用直接忽略.编译完成之后我们在dist目录下,可以看到新编译出来的组件.
-![7f2fcf6b8c19cd3be84928573468981|452x499](./image/fb59d780bfeeaffef8465d1313332ece62a9fea5.png) 
+![f99c4d1f80a11c59b155fd7a3bc3d76|690x226](upload://jOeY31s6bogFZPPMX9ZPMqmJoGQ.png) 有些错误,不影响使用直接忽略.编译完成之后我们在dist目录下,可以看到新编译出来的组件.
+![7f2fcf6b8c19cd3be84928573468981|452x499](upload://lMZj787cwlK6kJKeVKmFylc2e1J.png) 
 - 4, 引入sdk, 这里我们多引入 web3-eth-accounts.js,引入的代码如下:
 ```
     <!DOCTYPE html>
@@ -267,7 +267,7 @@ platonWeb.platon.getTransactionCount("lat1zrq89dhle45g78mm4j8aq3dq5m2shpu56ggc6e
 
 ```
  输出结果:
-![fac480b17ba5b70f178ee579ca6cfa2|635x252](./image/1ac119c3ee65c2bb187bd77a3571f9694b5cc40e.png)  
+![fac480b17ba5b70f178ee579ca6cfa2|635x252](upload://3OG85tGgfNGaGErXvbjComJ8kNg.png)  
 
     步骤说明:
 
@@ -286,9 +286,9 @@ platonWeb.platon.getTransactionCount("lat1zrq89dhle45g78mm4j8aq3dq5m2shpu56ggc6e
 - 6, 最后我们通过浏览器查看两个钱包的交易记录:
 
     发送钱包的浏览器地址: https://devnetscan.platon.network/address-detail?address=lat1tgu6pts6nhmneu5zhqly3rc83r6y6ecfmde03e 
-![6cb32f7aa622ce2e56306eded2da7c5|690x132](./image/604978941599faca4dd0ad993f9adad3a4b9b4fe_2_690x132.png) 
+![6cb32f7aa622ce2e56306eded2da7c5|690x132](upload://dJNfnBgdSlDZ6giVI13SKMqsczk.png) 
 因为笔者在演示过程中调用了两次,因此可以看到两条转账记录.查看接受钱包的收款记录,浏览器地址:https://devnetscan.platon.network/address-detail?address=lat1zrq89dhle45g78mm4j8aq3dq5m2shpu56ggc6e 可以看到有两条收款记录.
-![1cbfcb09bb205acbb5a217a062821d2|690x96](./image/8d620422e233bee14dae107e1aa8b3e91486ba66.png) 
+![1cbfcb09bb205acbb5a217a062821d2|690x96](upload://kaJjXHh5YIBJUt4O826ydsWwW0u.png) 
 
      
 
