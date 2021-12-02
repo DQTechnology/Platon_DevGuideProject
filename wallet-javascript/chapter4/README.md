@@ -56,9 +56,13 @@
 </template>
 ```
 重新编译工程,就可以看到如下效果:
+
 ![1638068944(1)|690x390](./image/1.png) 
+
 在生成助记词之前,我们先来看如何保存创建密码页的密码.我们打开public/js下的background.js文件
+
 ![1638069071(1)|216x130](./image/2.png) 
+
 编写密码管理类PasswordManager, 部分代码如下:
 ```
 /**
@@ -191,7 +195,9 @@ installPlugin(digging, 'digging'); // 注册digging到全局
 </template>
 ```
 页面效果如下图:
+
 ![1638083918(1)|586x499](./image/3.png) 
+
 下面我们开始编写逻辑代码:
 #### 1, 创建密码页面的逻辑
 在create-password-page.vue页面的created函数判断当前是否已经存在密码,如果存在则继续判断是否已经解锁,如果未解则跳转到主界面.如果密码未创建,则显示创建面的页面,部分代码如下:
@@ -283,9 +289,13 @@ unlock-page.vue页面的部分逻辑如下:
 ```
 #### 3, 生成助记词的逻辑
 使用助记词需要安装bip39和hdkey在两个库.在当前工程目录打开控制人, 输入 npm install bip39 hdkey 如下图:
+
 ![1638113297(1)|442x117](./image/4.png) 
+
 安装完毕后会在工程目录下的package.json文件看到这两个库的信息,如下图:
+
 ![1638113376(1)|241x167](./image/5.png) 
+
 接着打开seed-phrase-page.vue页面,在这里引入bip39库, 代码如下:
 ```
 <script>
@@ -304,7 +314,9 @@ const bip39 = require("bip39");
  }
 ... 省略代码
 ```
+
 ![1638356803(1)|690x446](./image/6.png) 
+
 #### 4,助记词确认页面
 
 在page目录, 新增seed-phrase-confirm-page.vue文件,部分代码如下
@@ -347,9 +359,13 @@ const bip39 = require("bip39");
 </template>
 ```
 界面如下:
+
 ![1638363243(1)|497x500](./image/7.png) 
+
 为了可以在seed-phrase-page.vue页生成的助记词传递到确认页面.需要安装Vuex组件. 安装好Vuex组建后,在当前工程目录下载创建store.js文件, 如下图:
+
 ![1638363407(1)|403x292](./image/8.png) 
+
 store.js的代码如下:
 ```
 import Vue from 'vue';
@@ -408,7 +424,6 @@ new Vue({
 // 引入 bip39 ,hdkey 两个包
 const bip39 = require("bip39");
 const hdkey = require("hdkey");
-
 
 ... 省略代码
   mounted() {
