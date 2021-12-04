@@ -442,6 +442,32 @@ class PrivateKeyManager {
 
 重置页面的逻辑和导入助记词的页面的功能基本一样,具体的代码逻辑参考该页面即可.就不再做详细介绍.
 
+### 修复助记词确认页面单词重复不能选择的BUG
+当生成的助记词的单词重复时,出现不能选中相同的单词的问题, 因此seed-phrase-confirm-page.vue的mounted函数的代码需要修改如下
+```
+  mounted() {
+        if (!this.mnemonic) {
+            let mnemonic = bip39.generateMnemonic();
+            this.$store.commit("SetMnemonic", mnemonic);
+        }
+        // 保存正确顺序的助记词
+        let splitSeedWords = this.mnemonic.split(" ");
+
+        this.orginSeedWords = [];
+        // 这里给每一个单词排序号,避免有重复单词智能选择一个的问题
+        for (let i = 0; i < splitSeedWords.length; ++i) {
+            this.orginSeedWords.push({
+                index: i,
+                word: splitSeedWords[i]
+            });
+        }
+
+        // 打算助记词的顺序, 这里 [...this.orginSeedWords] 复制数组
+
+        this.seedWords = this.shuffle([...this.orginSeedWords]);
+    },
+```
+
 好啦,本章内容先到这里啦, 下一章我们将学习实现钱包转账以及查看交易列表
 仓库地址: https://github.com/DQTechnology/Platon_DevGuideProject
 

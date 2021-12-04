@@ -7,18 +7,18 @@
 
         <div class="grid-layout select-seed-words">
             <el-button class="seed-word" v-for="(item, index) in selectWords" :key="index">
-                {{ item }}
+              {{ item.word }}
             </el-button>
         </div>
         <div class="grid-layout">
             <el-button
                 class="seed-word"
-                :type="getBtnType(item)"
+                :type="getBtnType(item.index)"
                 v-for="(item, index) in seedWords"
                 :key="index"
                 @click="onSelectWord(item)"
             >
-                {{ item }}
+                {{ item.word }}
             </el-button>
         </div>
         <el-button type="primary" class="confirm-btn" :disabled="disableBtn" @click="onConfirm"
@@ -58,19 +58,31 @@ export default {
             this.$store.commit("SetMnemonic", mnemonic);
         }
         // 保存正确顺序的助记词
-        this.orginSeedWords = this.mnemonic.split(" ");
+        let splitSeedWords = this.mnemonic.split(" ");
+
+        this.orginSeedWords = [];
+        // 这里给每一个单词排序号,避免有重复单词智能选择一个的问题
+        for (let i = 0; i < splitSeedWords.length; ++i) {
+            this.orginSeedWords.push({
+                index: i,
+                word: splitSeedWords[i]
+            });
+        }
+
         // 打算助记词的顺序, 这里 [...this.orginSeedWords] 复制数组
+
         this.seedWords = this.shuffle([...this.orginSeedWords]);
     },
 
     methods: {
-        onSelectWord(word) {
+        onSelectWord(item) {
             // 判断单词是否被选中, 如果为选中则恢复为未选中
-            if (this.seedWordsMap[word]) {
-                this.seedWordsMap[word] = false;
+            if (this.seedWordsMap[item.index]) {
+                this.seedWordsMap[item.index] = false;
                 let newSelectWords = [];
+
                 this.selectWords.forEach(ele => {
-                    if (ele === word) {
+                    if (ele.index === item.index) {
                         return;
                     }
                     newSelectWords.push(ele);
@@ -78,8 +90,8 @@ export default {
                 this.selectWords = newSelectWords;
             } else {
                 // 选中单词
-                this.seedWordsMap[word] = true;
-                this.selectWords.push(word);
+                this.seedWordsMap[item.index] = true;
+                this.selectWords.push(item);
             }
             // 计算集配的数量
             let matchWordNum = 0;
@@ -87,7 +99,7 @@ export default {
                 let orginWord = this.orginSeedWords[i];
                 let selectedWord = this.selectWords[i];
 
-                if (orginWord === selectedWord) {
+                if (orginWord.word === selectedWord.word) {
                     ++matchWordNum;
                 } else {
                     break;
@@ -98,8 +110,8 @@ export default {
 
             this.$forceUpdate();
         },
-        getBtnType(word) {
-            if (this.seedWordsMap[word]) {
+        getBtnType(index) {
+            if (this.seedWordsMap[index]) {
                 return "primary";
             }
             return "";
