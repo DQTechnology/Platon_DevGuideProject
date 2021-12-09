@@ -178,7 +178,7 @@ class TransactionManager {
 - GetGasPrice 获取当前价格
 - SendLATTO 发送LAT函数
 
-**在这里我们修复导入钱包的BUG, 找到私钥管理类PrivateKeyManager的StorePrivateKey的函数在这里我们需要对私钥进行判断, 判断其是否是以0x开头,如果不是我们需要添加上,否则解密出来的地址对应不上**代码如下:
+**在这里我们修复导入钱包的BUG, 找到私钥管理类PrivateKeyManager的StorePrivateKey的函数在这里我们需要对私钥进行判断, 判断其是否是以0x开头,如果不是我们需要添加上,否则生成出来的地址不正确**代码如下:
 ```
    static async StorePrivateKey(account, privateKey, force) {
         if (!privateKey.startsWith("0x")) {
@@ -254,7 +254,7 @@ async getBalanceOf() {
             this.onGoBack();
         },
 ```
-这里需要注意的是, 我们需要钱包的验证函数,代码如下:
+这里需要注意的是, 我们需要编写钱包合法性验证函数,代码如下:
 ```
         ValidateAddress(rule, value, callback) {
             if (!this.digging.TransactionManager.IsBech32Address(this.sendInfo.toAddress)) {
@@ -270,7 +270,7 @@ async getBalanceOf() {
 
 ![R~S`3$RL8_8{WG(EVHZ54N|364x500](./image/4.png) 
 
-**注:本章还没有完成所需所需费显示功能,因此暂时显示为0**
+**注:本章还没有完成所需手续费显示功能,因此暂时显示为0**
 发送完成后,我们就可以查看到交易记录啦, 如下图:
 
 ![1638979128(1)|690x112](./image/5.png) 
@@ -320,7 +320,7 @@ async getBalanceOf() {
     </div>
 </template>
 ```
-这里获取交易记录, 在sdk里面没有,我们需要去官网的浏览器获取. 我们需要编写http接口.在src目录下创建 api目录. 然后添加 tx-record.js和index.js两个文件, 如下图:
+这里获取交易记录, 在sdk里面没有,我们需要去官网获取. 我们需要编写http接口.在src目录下创建 api目录. 然后添加 tx-record.js和index.js两个文件, 如下图:
 ![`%XDLTHAQK8)IV@`IRQF{0E|184x120](./image/6.png) 
 
 tx-record.js的代码如下:
