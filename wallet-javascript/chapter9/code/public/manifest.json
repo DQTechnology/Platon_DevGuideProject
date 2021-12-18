@@ -1,0 +1,44 @@
+{
+  "manifest_version": 2,
+  "name": "Digging",
+  "version": "0.9",
+  "description": "Digging钱包",
+  "author": "DQTech",
+  "content_security_policy": "default-src 'self';script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline';img-src 'self' data: base64; connect-src *",
+  "icons": {
+    "48": "48.png"
+  },
+  "browser_action": {
+    "default_icon": "32.png",
+    "default_title": "Digging",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["js/web3-eth-accounts.js", "js/web3.js", "js/background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "file://*/*",
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "js/contentscript.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "https://devnetscan.platon.network/",
+    "https://scan.platon.network/",
+    "https://samurai.platon.network/",
+    "storage",
+    "unlimitedStorage",
+    "clipboardWrite",
+    "activeTab",
+    "webRequest"
+  ]
+}
