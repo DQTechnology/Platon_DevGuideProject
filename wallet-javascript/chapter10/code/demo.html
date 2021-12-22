@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      获取指定钱包地址余额: <input id="balanceAddress" />
+      <span id="balance">0 LAT</span> <button id="balanceBtn">获取</button>
+    </div>
+
+    <div style="margin-top:30px;">
+      发送LAT:
+      <div>lat数量: <input id="sendLatNum" /></div>
+      <div>账号: <input id="account" /></div>
+      <div>接收地址: <input id="toAddress" /></div>
+      <div>
+        <button id="sendBtn">发送</button>
+      </div>
+    </div>
+
+    <script>
+      window.onload = () => {
+        let balanceAddressDom = document.getElementById("balanceAddress");
+        let balanceDom = document.getElementById("balance");
+
+        let balanceBtnDom = document.getElementById("balanceBtn");
+
+        // 获取指定地址的lat数量
+        balanceBtnDom.onclick = async () => {
+          let res = await Digging.GetBalanceOf(balanceAddressDom.value);
+
+          balanceDom.innerHTML = res.data + " LAT";
+        };
+
+        let sendLatNumDom = document.getElementById("sendLatNum");
+        let accountDom = document.getElementById("account");
+        let toAddressDom = document.getElementById("toAddress");
+
+        let sendBtnDom = document.getElementById("sendBtn");
+
+        sendBtnDom.onclick = async () => {
+          let res = await Digging.SendLat(
+            sendLatNumDom.value,
+            accountDom.value,
+            toAddressDom.value
+          );
+          console.log(res);
+        };
+      };
+    </script>
+  </body>
+</html>
