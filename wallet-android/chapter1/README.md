@@ -117,6 +117,42 @@ include ':app'
 ![1640787374(1)|365x337](./image/5.png) 
 
 这里设置支持arm64和x86读者如果不需要的话,可以自行删除不需要的平台.
+
+
+最后我们在AndroidManifest.xml文件添加使用网络的权限, 代码如下:
+```
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.digquant">
+
+    <!-- 访问网络，网络定位需要上网-->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher" 
+        android:label="@string/app_name"
+        android:usesCleartextTraffic="true"
+
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Digging">
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="fullSensor"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+```
+
+
 此致工程构建完毕.
 
 ### 编写代码
