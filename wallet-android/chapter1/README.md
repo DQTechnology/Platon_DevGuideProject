@@ -2,15 +2,15 @@
 
 ### 搭建工程
 本篇采用koltin开发, IDE为Android. 我们打开Android Studio新建工程
-![(K$CE3NU9Y8IKHPHQ5M81S|687x500](./upload/1.png) 
+![(K$CE3NU9Y8IKHPHQ5M81S|687x500](./image/1.png) 
 这里选择的是Empty Activity
 
-![PV7W40Z6P{70P9(}$JZKG(E|690x495](./upload/2.png) 
+![PV7W40Z6P{70P9(}$JZKG(E|690x495](./image/2.png) 
 开发语言为koltin,最小支持得到SDK为API 21
 
 工程创建完成,目录如下:
 
-![SMGT3(R~4%J%79Q_{E`QUE|381x500](./upload/3.png) 
+![SMGT3(R~4%J%79Q_{E`QUE|381x500](./image/3.png) 
 
 接着我们引入PlatON的Android版本的SDK
 
@@ -89,7 +89,7 @@ dependencies {
 }
 ```
 接着打开最外层的settings.gradle文件,如下图:
-![1640787260(1)|342x328](./upload/4.png) 
+![1640787260(1)|342x328](./image/4.png) 
 增加platon的仓库地址,内容如下:
 ```
 dependencyResolutionManagement {
@@ -108,13 +108,13 @@ rootProject.name = "Digging"
 include ':app'
 ```
 紧接着在app目录下创建libs目录,将libscrypt.so文件拷贝到改目录下,如下图:
-![1640787374(1)|365x337](./upload/5.png) 
+![1640787374(1)|365x337](./image/5.png) 
 这里设置支持arm64和x86读者如果不需要的话,可以自行删除不需要的平台.
 此致工程构建完毕.
 
 ### 编写代码
 在com.digquant包下创建api包,然后添加PlatonApi文件,如下图:
-![1640787533(1)|331x116](./upload/6.png) 
+![1640787533(1)|331x116](./image/6.png) 
 
 PlatonApi顾名思义,所有和PlatON节点的交互接口都放在这里.其代码如下:
 ```
@@ -166,7 +166,7 @@ class PlatonApi {
 对于这个类,笔者通过伴生的方式实现为单例.
 本工程函数的命名规则参考Go语言: public函数的首字母为大写, 其他为小写.这样易于区分函数类型.因为这里获取指定钱包余额函数为公有函数,因此为**GetBalance**
 接着我们编写界面,打开res/layout下的activity_main.xml文件,如下图:
-![1640788019(1)|326x262](./upload/7.png) 
+![1640788019(1)|326x262](./image/7.png) 
 代码如下:
 
 ```
@@ -224,10 +224,10 @@ class PlatonApi {
 </LinearLayout>
 ```
 界面效果如下图:
-![6065862C5F08A9E7E65F69BB492E835B|230x500](./upload/8.jpeg) 
+![6065862C5F08A9E7E65F69BB492E835B|230x500](./image/8.jpeg) 
 
 然后在com.digquant.activity的MainActivity文件
-![1640788194(1)|200x69](./upload/9.png) 
+![1640788194(1)|200x69](./image/9.png) 
 
 其代码如下:
 ```
@@ -314,9 +314,9 @@ class ThreadPoolUtil {
 }
 ```
 最后我们在App输入地址:lat1zrq89dhle45g78mm4j8aq3dq5m2shpu56ggc6e可以查出该钱包的余额, 如下图:
-![193F6A80938B6F1DDB743D1058763F15|230x500](./upload/10.jpeg) 
+![193F6A80938B6F1DDB743D1058763F15|230x500](./image/10.jpeg) 
 浏览器查看到余额如下:
-![Y7H{CX3$Y9H(D@O(YTJL(DU|690x210](./upload/11.png) 
+![Y7H{CX3$Y9H(D@O(YTJL(DU|690x210](./image/11.png) 
 
 可以看到我们获取到的余额和浏览器的一致.
 
