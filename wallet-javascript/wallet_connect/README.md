@@ -1,4 +1,4 @@
-ATON 1.1.0 版本已经支持了 WalletConnect 协议。用户可以在保持私钥不离开移动设备，不暴露给 DApp 的前提下，实现与 DApp 的连接和交易签名。本章通过改造浏览器版本的Digging，通过WallectConnect实现转账功能。
+ATON 1.1.0 版本已经支持了 WalletConnect 协议。用户可以在保持私钥不离开移动设备，不暴露给 DApp 的前提下，实现与 DApp 的连接和交易签名。本章通过改造浏览器版本的Digging，通过WalletConnect实现转账功能。
 
 ### 创建工程
 功能通过删减《跟Dex学PlatON应用开发–JavaScript篇》的源码构建的，改造后的工程目录如下：
