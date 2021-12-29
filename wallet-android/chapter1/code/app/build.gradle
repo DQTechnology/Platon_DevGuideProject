@@ -7,7 +7,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.mifun"
+        applicationId "com.digquant"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 1

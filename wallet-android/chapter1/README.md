@@ -1,4 +1,4 @@
-我们开始构建Android版本的Digging啦, 本章我们讲完成环境的搭建以及获取钱包的余额.
+我们开始构建Android版本的Digging啦, 本章我们将完成环境的搭建以及获取钱包的余额.
 
 ### 搭建工程
 本篇采用koltin开发, IDE为Android. 我们打开Android Studio新建工程
@@ -29,7 +29,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.mifun"
+        applicationId "com.digquant"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
