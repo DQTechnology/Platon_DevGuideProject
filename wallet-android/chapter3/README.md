@@ -673,7 +673,9 @@ class BackupMnemonicPhraseActivity : AppCompatActivity() {
     }
 }
 ```
+
 该类的主要逻辑：从WalletManager类中获取当前创建钱包回话的助记词，并显示在页面上，页面效果如下图:
+
 ![3E414C11C9F73F5F9C20A0145BB14EF7|230x500](./image/4.jpeg) 
 
 ### WalletManager解析
