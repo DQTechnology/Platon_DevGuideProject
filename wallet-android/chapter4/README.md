@@ -410,6 +410,7 @@ showMnemonicWords方法的代码如下:
 仓库地址: https://github.com/DQTechnology/Platon_DevGuideProject
 
 Andorid篇往期连接
+
 [跟Dex学PlatON应用开发–Android篇(一)](https://forum.latticex.foundation/t/topic/5948)
 
 [跟Dex学PlatON应用开发–Android篇(二)](https://forum.latticex.foundation/t/topic/5952)
