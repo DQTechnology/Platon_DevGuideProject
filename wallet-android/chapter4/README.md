@@ -411,5 +411,7 @@ showMnemonicWords方法的代码如下:
 
 Andorid篇往期连接
 [跟Dex学PlatON应用开发–Android篇(一)](https://forum.latticex.foundation/t/topic/5948)
+
 [跟Dex学PlatON应用开发–Android篇(二)](https://forum.latticex.foundation/t/topic/5952)
+
 [跟Dex学PlatON应用开发–Android篇(三)](https://forum.latticex.foundation/t/topic/5958)
