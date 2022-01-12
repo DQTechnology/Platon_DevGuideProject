@@ -136,11 +136,11 @@ class ImportPageAdapter : RecyclerView.Adapter<BaseViewHolder>() {
 ```
 页面效果如下图:
 
-![FDBF44FEBC3BBE2E3F3A49DC4E652BF0|230x500](upload://6U9wXEJzrxRwC7Uobp8TK2cDU1.jpeg) 
+![FDBF44FEBC3BBE2E3F3A49DC4E652BF0|230x500](./image/1.jpeg) 
 
- ![CAF56F44F8C8D62320C2ADC61D493EA2|230x500](upload://vHBAyt3T65lm240DCTByAoYvgk1.jpeg)  
+ ![CAF56F44F8C8D62320C2ADC61D493EA2|230x500](./image/2.jpeg)  
 
-![012899E8F514572E84E4C99FC008FDB5|230x500](upload://bxNbNzIdiRFihzfCqFQ1Rey0xk5.jpeg) 
+![012899E8F514572E84E4C99FC008FDB5|230x500](./image/3.jpeg) 
 
 ### 导入助记词的逻辑
 在com.digquant.page的ImportMnemonicPage类,该类得到逻辑和创建钱包逻辑基本一致, 由于代码篇幅比较大,笔者就不贴代码了.该类的主要逻辑如下:
@@ -175,7 +175,7 @@ class ImportPageAdapter : RecyclerView.Adapter<BaseViewHolder>() {
 
 页面效果图如下:
 
-![5854E2B12A065913BA6328CA6B72AFE5|230x500](upload://k8cqyJG4ouEgezSA01v2H0DvAtJ.jpeg) 
+![5854E2B12A065913BA6328CA6B72AFE5|230x500](./image/4.jpeg) 
 
 钱包文件内容如下:
 ```
@@ -244,7 +244,7 @@ class ImportPageAdapter : RecyclerView.Adapter<BaseViewHolder>() {
 ```
 使用Credentials.create尝试使用输入的密码解锁钱包文件, 如果输入的密码不正确,会抛出CipherException异常,如下图:
 
-![J{S3%{CZG}16@`YSV}{8S}1|640x323](upload://gl460A3p9TEwsKXlCugW5lOl9H3.png) 
+![J{S3%{CZG}16@`YSV}{8S}1|640x323](./image/5.png) 
 
 如果输入的密码正确,则成功导入.
 
@@ -279,7 +279,11 @@ class ImportPageAdapter : RecyclerView.Adapter<BaseViewHolder>() {
 仓库地址: https://github.com/DQTechnology/Platon_DevGuideProject
 
 Andorid篇往期连接
+
 [跟Dex学PlatON应用开发–Android篇(一)](https://forum.latticex.foundation/t/topic/5948)
+
 [跟Dex学PlatON应用开发–Android篇(二)](https://forum.latticex.foundation/t/topic/5952)
+
 [跟Dex学PlatON应用开发–Android篇(三)](https://forum.latticex.foundation/t/topic/5958)
+
 [跟Dex学PlatON应用开发–Android篇(四)](https://forum.latticex.foundation/t/topic/5967)
