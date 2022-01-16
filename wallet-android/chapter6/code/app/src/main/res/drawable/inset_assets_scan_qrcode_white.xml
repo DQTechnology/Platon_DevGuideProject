@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android">
+    <inset
+        android:drawable="@mipmap/icon_scanning_white"
+        android:insetLeft="16.0dip"
+        android:insetTop="3.0dip"
+        android:insetRight="10.0dip"
+        android:insetBottom="21.0dip" />
+</inset>

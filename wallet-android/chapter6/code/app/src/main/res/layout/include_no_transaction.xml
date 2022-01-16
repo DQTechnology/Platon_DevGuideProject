@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/color_f2f5fa"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="4.0dip"
+    android:visibility="visible">
+
+    <ImageView
+        android:id="@+id/iv_no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_no_data" />
+
+    <TextView
+        android:id="@+id/tv_warning"
+        style="@style/Text.61646e.16"
+        android:layout_marginTop="14.0dip"
+        android:text="@string/no_transaction_record" />
+</LinearLayout>
