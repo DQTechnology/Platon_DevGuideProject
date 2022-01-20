@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="#03081E"
+            android:scaleType="fitXY"
+            android:src="@mipmap/bg_assets_top2"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/nodeBar"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:orientation="horizontal"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints,RtlSymmetry">
+
+            <TextView
+                android:id="@+id/walletName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                android:text="yluo"
+                android:textColor="@color/color_ffffff"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:drawableLeftCompat="@mipmap/icon_back_white" />
+
+            <TextView
+                android:id="@+id/titlebarAssetsType"
+                style="@style/Text.fff.16"
+                android:layout_width="fill_parent"
+                android:layout_height="44.0dip"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="LAT"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/walletAmount"
+            style="@style/Text.fff.29"
+            android:layout_width="350.0dip"
+            android:layout_height="42.0dip"
+            android:layout_marginTop="90.0dip"
+            android:gravity="center_horizontal"
+            android:lines="1"
+            android:text="--"
+            app:autoSizeMaxTextSize="29.0sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/walletAmount">
+
+            <com.platon.aton.widge.RoundedTextView
+                style="@style/Text.105cfe.14"
+                android:id="@+id/sendBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_marginEnd="10dp"
+                android:minWidth="82.0dip"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/msg_send_transaction"
+                app:rtv_background_color="@color/color_ffffff"
+                app:rtv_border_color="@color/color_00000000"
+                app:rtv_border_width="1dp" />
+
+            <com.platon.aton.widge.RoundedTextView
+                style="@style/Text.105cfe.14"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_marginStart="10dp"
+                android:minWidth="82dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="@string/action_receive_transaction"
+                app:rtv_background_color="@color/color_ffffff"
+                app:rtv_border_color="@color/color_00000000"
+                app:rtv_border_width="1dp" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-25dp"
+        android:background="@drawable/bg_assets_list"
+        android:orientation="vertical"
+        android:paddingTop="12dp">
+
+        <TextView
+            style="@style/Text.000000.15"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/msg_assets_transaction"
+            android:textStyle="bold" />
+
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.scwang.smart.refresh.header.ClassicsHeader
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srlTextUpdate="yyyy-MM-dd HH:mm" />
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.platon.aton.widge.EmptyRecyclerView
+                    android:id="@+id/tx_record_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <include  android:id="@+id/emptyTip" layout="@layout/include_no_transaction" />
+
+            </FrameLayout>
+
+
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

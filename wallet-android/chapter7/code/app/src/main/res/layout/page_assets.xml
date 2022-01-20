@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="#03081E"
+            android:scaleType="fitXY"
+            android:src="@mipmap/bg_assets_top2"
+            tools:ignore="MissingConstraints,RtlSymmetry" />
+        <LinearLayout
+            android:id="@+id/nodeBar"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints,RtlSymmetry">
+
+            <LinearLayout
+                android:id="@+id/nodeSetting"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/nodeName"
+                    style="@style/Text.fff.18"
+                    android:text="PlatON 开发网络"
+                    android:textStyle="bold" />
+
+                <!--                <ImageView-->
+                <!--                    android:id="@+id/nodeChange"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginStart="5dp"-->
+                <!--                    android:layout_marginTop="2dp"-->
+                <!--                    android:src="@mipmap/icon_node_seting_white" />-->
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+<!--            <ImageView-->
+<!--                android:id="@+id/assetsScanQrcode"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginEnd="8dp"-->
+<!--                android:padding="5dp"-->
+<!--                android:src="@mipmap/icon_scanning_white" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/assetsAdd"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:paddingLeft="5dp"-->
+<!--                android:paddingTop="15dp"-->
+<!--                android:paddingRight="5dp"-->
+<!--                android:paddingBottom="15dp"-->
+<!--                android:src="@mipmap/icon_add_white" />-->
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/walletNameBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp"
+            android:paddingTop="4dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="4dp"
+            app:layout_constraintBottom_toTopOf="@+id/walletAddress"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <TextView
+                android:id="@+id/walletName"
+                style="@style/Text.fff.19"
+                android:layout_width="wrap_content"
+                android:ellipsize="end"
+                android:lines="1"
+                android:text=""
+                app:layout_constrainedWidth="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+<!--            <ImageView-->
+
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:src="@mipmap/icon_switch" />-->
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/walletAddress"
+            style="@style/Text.fff.13"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text=""
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toTopOf="@id/manageWallet"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:ignore="MissingConstraints" />
+
+
+        <ImageView
+            android:id="@+id/manageWallet"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="50dp"
+            android:src="@mipmap/icon_assets_classic_h"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/receiveWallet"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="10dp"
+            android:src="@mipmap/icon_qr_receive"
+            app:layout_constraintRight_toLeftOf="@id/manageWallet"
+            app:layout_constraintTop_toTopOf="@id/manageWallet" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-25dp"
+        android:background="@drawable/bg_assets_list"
+        android:orientation="vertical">
+
+        <com.platon.aton.widge.table.CustomTabLayout
+            android:layout_marginTop="10dp"
+            android:id="@+id/stbBar"
+            android:fillViewport="true"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/assetsTabLayoutHeight"
+            android:layout_marginStart="16dp"
+            android:background="@color/color_f2f5fa"
+            android:paddingTop="5dp"
+            android:paddingBottom="10dp"
+            app:stl_defaultTabTextColor="@color/color_00000000"
+            app:stl_distributeEvenly="true"
+            app:stl_dividerColor="@color/color_00000000"
+            app:stl_dividerThickness="20dp"
+            app:stl_indicatorColor="@color/color_105cfe"
+            app:stl_indicatorCornerRadius="@dimen/assetsCollapsIndicatorThickness"
+            app:stl_indicatorGravity="bottom"
+            app:stl_indicatorInterpolation="smart"
+            app:stl_indicatorThickness="@dimen/assetsTabLayoutHeight"
+            app:stl_indicatorWidth="20dp"
+            app:stl_titleOffset="0dp"
+            app:stl_underlineColor="@color/color_00000000"
+            app:stl_underlineThickness="1dp" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vpContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+</LinearLayout>
