@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/refresher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.scwang.smart.refresh.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srlTextUpdate="yyyy-MM-dd HH:mm" />
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.platon.aton.widge.EmptyRecyclerView
+                android:id="@+id/validator_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+            <LinearLayout
+                android:id="@+id/emptyTip"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_f2f5fa"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="4dp"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_no_data" />
+
+                <TextView
+                    android:id="@+id/tv_warning"
+                    style="@style/Text.61646e.16"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/msg_no_validators" />
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+</FrameLayout>

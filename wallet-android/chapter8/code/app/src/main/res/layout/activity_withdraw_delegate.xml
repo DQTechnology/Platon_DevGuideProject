@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/bg_status_bar"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:drawablePadding="8dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:text="@string/validators_withdraw"
+            android:textColor="@color/color_000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@mipmap/icon_back_black" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_ffffff"
+                android:orientation="horizontal">
+
+                <com.platon.aton.widge.CircleImageView
+                    android:id="@+id/delegate_node_icon"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginTop="15dp"
+                    android:padding="5dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="15dp"
+                    android:layout_toEndOf="@id/delegate_node_icon"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/delegate_node_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_000000"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/delegate_node_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/color_898c9e"
+                        android:textSize="13sp"
+                        android:typeface="monospace" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/wallet_choose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
+                android:background="@mipmap/icon_my_delegate_item_bg"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <com.platon.aton.widge.CircleImageView
+                    android:id="@+id/wallet_icon"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginTop="11dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_toEndOf="@+id/wallet_icon"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toRightOf="@id/wallet_icon"
+                    tools:ignore="MissingConstraints">
+
+                    <TextView
+                        android:id="@+id/delegate_wallet_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="left"
+                        android:lines="1"
+                        android:textColor="@color/color_000000"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/delegate_wallet_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textColor="@color/color_898c9e"
+                        android:textSize="13sp"
+                        android:typeface="monospace" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <RelativeLayout
+                android:id="@+id/amount_choose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/bg_validators_item"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:id="@+id/amount_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/withdraw_type_delegated"
+                    android:textColor="@color/color_000000"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@id/amount_type"
+                    android:gravity="center|right"
+                    android:orientation="horizontal"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+
+                        android:id="@+id/delegate_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="right"
+                        android:maxLines="1"
+                        android:paddingRight="5dp"
+                        android:textColor="@color/color_000000"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+
+                        tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:text="LAT"
+                        android:textColor="@color/color_000000"
+                        android:textSize="12sp" />
+
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/transation_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/withdraw_amount"
+                    android:textColor="@color/color_61646e"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/tips"
+                        android:layout_width="1dp"
+                        android:layout_height="15dp"
+                        android:layout_marginLeft="6dp"
+                        android:background="@color/color_105cfe"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/input_tips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:textColor="@color/color_8c8c8c"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/layout_transation_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <EditText
+                        android:id="@+id/withdraw_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_edittext_underline"
+                        android:ellipsize="end"
+                        android:hint="@string/withdraw_tip"
+                        android:inputType="numberDecimal"
+                        android:lines="1"
+                        android:paddingRight="40dp"
+                        android:textColor="@color/color_000000"
+                        android:textColorHint="@color/color_b6bbd0"
+                        android:textSize="12sp" />
+
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/nput_error"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="left"
+                    android:text="error tip"
+                    android:textColor="@color/color_ff4747"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <RelativeLayout
+                    android:id="@+id/linear_fee_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/delegate_and_withdraw_fee"
+                        android:textColor="@color/color_b6bbd0"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/delegate_fee"
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="3dp"
+                            android:ellipsize="end"
+                            android:gravity="right"
+                            android:lines="1"
+                            android:paddingLeft="5dp"
+                            android:text="0.0000000000000000001"
+                            android:textColor="@color/color_b6bbd0"
+                            android:textSize="13sp"
+                            app:autoSizeMaxTextSize="13sp"
+                            app:autoSizeMinTextSize="5sp"
+                            app:autoSizeTextType="uniform" />
+
+                        <TextView
+                            android:id="@+id/lat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="LAT"
+                            android:textColor="@color/color_b6bbd0"
+                            android:textSize="12sp"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="5dp"
+                            android:src="@mipmap/icon_right_blue" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/password"
+                    android:textColor="@color/color_61646e"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/password"
+                    style="@style/Text.000.14"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_edittext_underline"
+                    android:gravity="center|left"
+                    android:hint="请输入钱包密码"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:paddingEnd="40dp"
+                    android:singleLine="true"
+                    android:textColorHint="@color/color_b6bbd0"
+
+                    tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+
+            </LinearLayout>
+
+            <com.platon.aton.widge.ShadowButton
+                android:id="@+id/sbtn_withdraw_delegate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                app:text="@string/validators_withdraw"
+                app:textAppearance="@style/MainButtonStyle"
+                app:textBackground="@drawable/bg_main_button" />
+
+            <TextView
+                android:id="@+id/no_delegate_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:text="@string/validators_details_tips"
+                android:textColor="@color/color_ff6b00"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="11dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/bg_amount_magnitudes"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/delegate_node"
+                    android:textColor="@color/color_000000"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_delegate_tips"
+                style="@style/Text.898c9e.14"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
+                android:gravity="left"
+                android:text="@string/withdraw_title_explain" />
+
+
+            <TextView
+                style="@style/Text.000.14"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="left"
+                android:text="@string/msg_withdraw_claim_reward" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_item_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_mydelegate_item"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingTop="8dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="12dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@mipmap/icon_my_delegate_item_bg">
+
+        <com.platon.aton.widge.CircleImageView
+            android:id="@+id/civ_wallet_avatar"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="3dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@mipmap/avatar_14" />
+
+        <TextView
+            android:id="@+id/node_status"
+            style="@style/Text.4a90e2.13"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Active" />
+
+
+        <LinearLayout
+            android:id="@+id/layout_node_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:orientation="horizontal"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toTopOf="@+id/node_address"
+            app:layout_constraintLeft_toRightOf="@id/civ_wallet_avatar"
+            app:layout_constraintRight_toLeftOf="@id/node_status"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <TextView
+                android:id="@+id/node_name"
+                style="@style/Text.000.15"
+                android:ellipsize="middle"
+                android:gravity="left"
+                android:maxWidth="180dp"
+                android:singleLine="true"
+                android:textStyle="bold"
+                tools:text="--" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/node_address"
+            style="@style/Text.61646e.13"
+            android:layout_marginTop="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/layout_node_info"
+            app:layout_constraintTop_toBottomOf="@id/layout_node_info"
+            tools:text="0xs7e4dade....4deadedwda" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:id="@+id/delegated"
+            style="@style/Text.898c9e.12"
+            android:text="@string/detail_delegated"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/delegated_amount"
+            style="@style/Text.000.14"
+            android:layout_width="0dp"
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:lines="1"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="14sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/undelegated_amount"
+            app:layout_constraintTop_toBottomOf="@id/delegated"
+            tools:ignore="RtlHardcoded"
+            tools:text="jsjsjsjjs1jsjsjsjjs1s1" />
+
+        <TextView
+            android:id="@+id/undelegated"
+            style="@style/Text.898c9e.12"
+            android:layout_marginEnd="44dp"
+            android:drawablePadding="4dp"
+            android:text="@string/detail_wait_undelegate"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/undelegated_amount"
+            style="@style/Text.000.14"
+            android:layout_width="0dp"
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:lines="1"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="14sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintLeft_toLeftOf="@id/undelegated"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/undelegated"
+            tools:ignore="RtlHardcoded"
+            tools:text="1,jsjsjsjjs1jsjsjsjjs1jsjsjsjjs1jsjsjsjjs1jsjsjsjjs1jsjsjsjjs1" />
+
+        <LinearLayout
+            android:id="@+id/layout_unclaim_reward"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_unclaimed_reward_bg"
+            android:divider="@drawable/divider_unclaim_reward"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:showDividers="middle"
+            app:layout_constraintTop_toBottomOf="@id/undelegated_amount">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_claim_reward_blue" />
+
+            <TextView
+                style="@style/Text.898c9e.12"
+                android:text="@string/msg_avaliable_claimed_reward" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/unclaimed_reward_amount"
+                style="@style/Text.000.14"
+                android:lines="1"
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="14sp"
+                app:autoSizeTextType="uniform"
+                tools:text="1,555.0331," />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/color_e4e7f3" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:divider="@drawable/divider_delegate_undelegate"
+        android:dividerPadding="14dp"
+        android:orientation="horizontal"
+        android:showDividers="middle">
+
+
+        <LinearLayout
+            android:id="@+id/layout_delegate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_delegate"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/delegate"
+                style="@style/Text.000.14"
+                android:drawableLeft="@mipmap/icon_detail_delegate"
+                android:drawablePadding="4dp"
+                android:text="@string/delegate"
+                android:textStyle="bold"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/view_divider" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout_undelegate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_delegate"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/undelegate"
+                style="@style/Text.000.14"
+                android:layout_height="match_parent"
+                android:drawableLeft="@mipmap/icon_detail_undelegate"
+                android:drawablePadding="4dp"
+                android:text="@string/withdraw"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toRightOf="@id/view_divider"
+                app:layout_constraintRight_toRightOf="parent" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

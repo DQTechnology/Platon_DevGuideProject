@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/bg_status_bar"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_marginStart="16dp"
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:drawablePadding="8dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:text="@string/createIndividualWallet"
+            android:textColor="@color/color_000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@mipmap/icon_back_black" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleBar"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="24dp">
+
+            <TextView
+                style="@style/Text.61646e.16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/name" />
+
+
+            <EditText
+                android:id="@+id/et_name"
+                style="@style/Text.000.15"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/bg_edittext_underline"
+                android:gravity="left|center_vertical"
+                android:hint="@string/nameOfWallet"
+                android:imeOptions="actionNext"
+                android:maxLength="20"
+                android:nextFocusForward="@+id/et_password"
+                android:singleLine="true"
+                android:textColorHint="@color/color_b6bbd0" />
+
+
+            <TextView
+                android:id="@+id/tv_name_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
+                android:text="Name can't be empty !"
+                android:textColor="@color/color_f5302c"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <TextView
+                style="@style/Text.61646e.16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/password" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="16dp">
+
+                <EditText
+                    android:id="@+id/et_password"
+                    style="@style/Text.000.15"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_edittext_underline"
+                    android:ellipsize="end"
+                    android:gravity="left|center_vertical"
+                    android:hint="@string/setPassword"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:nextFocusForward="@+id/et_repeat_password"
+                    android:paddingRight="25dp"
+                    android:singleLine="true"
+                    android:textColorHint="@color/color_b6bbd0" />
+
+                <ImageView
+                    android:id="@+id/iv_password_eyes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:src="@mipmap/icon_close_eyes"
+                    tools:ignore="RtlHardcoded" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginRight="16dp">
+
+                <EditText
+                    android:id="@+id/et_repeat_password"
+                    style="@style/Text.000.15"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_edittext_underline"
+                    android:gravity="left|center_vertical"
+                    android:hint="@string/repeatPassword"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textColorHint="@color/color_b6bbd0"
+                    tools:ignore="RtlHardcoded" />
+
+                <ImageView
+                    android:id="@+id/iv_repeat_password_eyes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:src="@mipmap/icon_close_eyes" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/password_strength"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="2dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@color/color_d5d8df"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/v_line1"
+                        android:layout_width="23dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="2dp"
+                        android:background="@color/color_00000000" />
+
+                    <View
+                        android:id="@+id/v_line2"
+                        android:layout_width="23dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="2dp"
+                        android:background="@color/color_00000000" />
+
+                    <View
+                        android:id="@+id/v_line3"
+                        android:layout_width="23dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="2dp"
+                        android:background="@color/color_00000000" />
+
+                    <View
+                        android:id="@+id/v_line4"
+                        android:layout_width="23dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="@color/color_00000000" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_strength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/strength"
+                    android:textColor="@color/color_ff9000"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tv_password_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/passwordTips"
+                android:textColor="@color/color_f5302c"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_password_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/passwordLimit"
+                android:textColor="@color/color_b6bbd0"
+                android:textSize="11sp" />
+
+            <com.platon.aton.widge.ShadowButton
+                android:id="@+id/sbtn_create"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="12dp"
+                app:enabled="false"
+                app:text="@string/create_wallet"
+                app:textAppearance="@style/MainButtonStyle"
+                app:textBackground="@drawable/bg_main_button" />
+
+            <TextView
+                android:id="@+id/wallet_num_over_limit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/msg_wallet_num_over_limit_tips"
+                android:textColor="@color/color_f5302c"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
+                android:text="@string/createIndividualWalletTips"
+                android:textColor="@color/color_ff6b00"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>
