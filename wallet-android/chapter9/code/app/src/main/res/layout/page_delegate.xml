@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.platon.aton.widge.table.CustomTabLayout
+        android:id="@+id/stbBar"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        android:fillViewport="true"
+        app:stl_defaultTabTextColor="@color/color_00000000"
+        app:stl_distributeEvenly="true"
+        app:stl_dividerColor="@color/color_00000000"
+        app:stl_dividerThickness="20dp"
+        app:stl_indicatorColor="@color/color_105cfe"
+        app:stl_indicatorCornerRadius="@dimen/assetsCollapsIndicatorThickness"
+        app:stl_indicatorGravity="bottom"
+        app:stl_indicatorInterpolation="smart"
+        app:stl_indicatorThickness="@dimen/assetsTabLayoutHeight"
+        app:stl_indicatorWidth="20dp"
+        app:stl_titleOffset="0dp"
+        app:stl_underlineColor="@color/color_00000000"
+        app:stl_underlineThickness="1dp" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

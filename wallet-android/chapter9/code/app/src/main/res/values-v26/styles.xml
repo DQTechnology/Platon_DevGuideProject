@@ -1,0 +1,9 @@
+<resources>
+
+    <style name="SplashTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowSplashscreenContent">@color/white</item>
+        <item name="android:windowAnimationStyle">@style/EnterNullAnimationStyle</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+</resources>

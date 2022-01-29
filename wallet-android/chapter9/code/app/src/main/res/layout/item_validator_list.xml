@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_shade"
+    android:layout_width="fill_parent"
+    android:layout_height="80.0dip"
+    android:background="@drawable/bg_validators_item"
+    android:padding="8dp">
+
+    <com.platon.aton.widge.CircleImageView
+        android:id="@+id/node_avatar"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="3dp"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/node_name"
+        style="@style/Text.000.14"
+        android:layout_marginStart="3dp"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:lines="1"
+        android:maxWidth="120dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/layout_delegated_info"
+        app:layout_constraintLeft_toRightOf="@id/node_avatar"
+        app:layout_constraintRight_toLeftOf="@id/node_state"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="RtlHardcoded,UnknownId" />
+
+    <LinearLayout
+        android:id="@+id/layout_delegated_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:orientation="horizontal"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/node_name"
+        app:layout_constraintTop_toBottomOf="@id/node_name">
+
+        <TextView
+            style="@style/Text.61646e"
+            android:text="@string/delegated" />
+
+        <TextView
+            android:id="@+id/delegated_amount"
+            style="@style/Text.000.12"
+            android:layout_marginStart="7dp" />
+    </LinearLayout>
+
+    <com.platon.aton.widge.RoundedTextView
+        android:id="@+id/node_state"
+        style="@style/Text.4a90e2.11"
+        android:layout_height="16dp"
+        android:layout_marginStart="6dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/node_name"
+        app:layout_constraintLeft_toRightOf="@id/node_name"
+        app:layout_constraintRight_toLeftOf="@id/layout_delegated_info"
+        app:rtv_background_color="@color/color_ffffff"
+        app:rtv_border_color="@color/color_4a90e2"
+        app:rtv_border_width="1dp"
+        app:rtv_corner_radius="3dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/annual_yield"
+        style="@style/Text.105cfe.17"
+        android:layout_width="108dp"
+        android:gravity="right"
+        android:lines="1"
+        android:textStyle="bold"
+        app:autoSizeMaxTextSize="17sp"
+        app:autoSizeMinTextSize="2sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@id/yield_msg"
+        app:layout_constraintRight_toRightOf="@id/yield_msg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/yield_msg"
+        style="@style/Text.898c9e.11"
+        android:layout_marginEnd="20dp"
+        android:text="@string/validators_yield"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/annual_yield" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/node_rank"
+        style="@style/Text.fff.11"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@mipmap/icon_rank_first"
+        android:includeFontPadding="false"
+        android:lines="1"
+        android:paddingStart="3dp"
+        android:paddingBottom="2dp"
+        app:autoSizeMaxTextSize="11sp"
+        app:autoSizeMinTextSize="8sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlSymmetry" />
+</androidx.constraintlayout.widget.ConstraintLayout>

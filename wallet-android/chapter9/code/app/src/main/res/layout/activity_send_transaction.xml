@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/bg_status_bar"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:drawablePadding="8dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:text="@string/msg_send_transaction"
+            android:textColor="@color/color_000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@mipmap/icon_back_black" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            style="@style/Text.61646e.16"
+            android:layout_marginTop="16dp"
+            android:text="@string/recipient_wallet_address" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/flAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/walletAddress"
+                    style="@style/Text.000.14"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignParentStart="true"
+
+                    android:background="@drawable/bg_edittext_underline"
+                    android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                    android:ellipsize="end"
+                    android:gravity="center|left"
+                    android:hint="@string/inputWalletAddress"
+                    android:imeOptions="actionNext"
+                    android:lines="2"
+                    android:maxLength="42"
+                    android:paddingRight="50dp"
+                    android:textColorHint="@color/color_b6bbd0"
+                    tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+                <ImageView
+                    android:id="@+id/iv_address_clear"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="8dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/icon_clear"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_to_address_error"
+                style="@style/Text.f5302c.12"
+                android:layout_below="@id/flAddress"
+                android:layout_marginTop="5dp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/Text.61646e.16"
+                android:layout_marginTop="16dp"
+                android:text="@string/amount" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/walletBalance"
+                style="@style/Text.b6bbd0.11"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="5.0dip"
+                tools:ignore="RtlHardcoded" />
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:id="@+id/layout_transaction_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                tools:ignore="NotSibling">
+
+                <EditText
+                    android:id="@+id/walletAmount"
+                    style="@style/Text.000.14"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_edittext_underline"
+                    android:ellipsize="end"
+                    android:gravity="center|left"
+                    android:hint="@string/inputSendAmount"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal"
+                    android:paddingEnd="40dp"
+                    android:singleLine="true"
+                    android:textColorHint="@color/color_b6bbd0"
+                    android:textStyle="bold"
+                    tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+                <!--                <TextView-->
+                <!--                    android:id="@+id/allAmount"-->
+                <!--                    style="@style/Text.105cfe.14"-->
+                <!--                    android:layout_gravity="center|right"-->
+                <!--                    android:text="@string/all"-->
+                <!--                    tools:ignore="RtlHardcoded" />-->
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/amountError"
+                style="@style/Text.ff4747.12"
+                android:layout_below="@id/layout_transaction_amount"
+                android:layout_marginTop="5dp" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/Text.61646e.16"
+            android:text="@string/password" />
+
+        <EditText
+            android:id="@+id/password"
+            style="@style/Text.000.14"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_edittext_underline"
+            android:gravity="center|left"
+            android:hint="请输入钱包密码"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:paddingEnd="40dp"
+            android:singleLine="true"
+            android:textColorHint="@color/color_b6bbd0"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_space_16"
+            app:cardCornerRadius="@dimen/layout_space_03"
+            app:cardElevation="@dimen/layout_space_01">
+
+            <LinearLayout
+                android:id="@+id/linearFeeAmountArea"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="17.0dip"
+                    android:orientation="vertical"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/feeAmountTitle"
+                        style="@style/Text.61646e.14"
+                        android:layout_marginStart="16.0dip"
+                        android:text="@string/transaction_fee" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/feeAmount"
+                        style="@style/Text.000.18"
+                        android:layout_width="fill_parent"
+                        android:layout_marginLeft="16.0dip"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="16.0dip"
+                        android:layout_marginBottom="@dimen/layout_space_15"
+                        android:ellipsize="end"
+                        android:gravity="left"
+                        android:lines="1"
+                        android:textStyle="bold"
+                        app:autoSizeMaxTextSize="16.0sp"
+                        app:autoSizeMinTextSize="2.0sp"
+                        app:autoSizeTextType="uniform" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.platon.aton.widge.ShadowButton
+            android:id="@+id/sendBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="20dp"
+            app:enabled="true"
+            app:text="@string/confirm"
+            app:textAppearance="@style/MainButtonStyle"
+            app:textBackground="@drawable/bg_main_button" />
+    </LinearLayout>
+
+
+</LinearLayout>

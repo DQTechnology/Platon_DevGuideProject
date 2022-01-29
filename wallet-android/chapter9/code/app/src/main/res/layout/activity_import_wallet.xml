@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/bg_status_bar"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:drawablePadding="8dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:text="@string/importIndividualWallet"
+            android:textColor="@color/color_000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@mipmap/icon_back_black" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.platon.aton.widge.table.SmartTabLayout
+            android:id="@+id/stb_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/assetsTabLayoutHeight"
+            app:stl_defaultTabTextColor="@color/color_00000000"
+            app:stl_distributeEvenly="true"
+            app:stl_dividerColor="@color/color_00000000"
+            app:stl_dividerThickness="0dp"
+            app:stl_indicatorColor="@color/color_105cfe"
+            app:stl_indicatorCornerRadius="@dimen/assetsCollapsIndicatorThickness"
+            app:stl_indicatorGravity="bottom"
+            app:stl_indicatorInterpolation="smart"
+            app:stl_indicatorThickness="@dimen/assetsTabLayoutHeight"
+            app:stl_indicatorWidth="83dp"
+            app:stl_underlineColor="@color/color_00000000"
+            app:stl_underlineThickness="1dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_ebeef4" />
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/bg_mydelegate_item"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingTop="8dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="12dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@mipmap/icon_my_delegate_item_bg">
+
+        <com.platon.aton.widge.CircleImageView
+            android:id="@+id/wallet_avatar"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@mipmap/icon_total_delegate" />
+
+        <TextView
+            android:id="@+id/wallet_name"
+            style="@style/Text.000.15"
+            android:layout_width="0dp"
+            android:layout_marginStart="3dp"
+            android:ellipsize="end"
+            android:gravity="left|center_vertical"
+            android:singleLine="true"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toTopOf="@+id/space"
+            app:layout_constraintLeft_toRightOf="@id/wallet_avatar"
+            app:layout_constraintRight_toLeftOf="@+id/delegate_detail"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="RtlHardcoded"
+            tools:text="钱包名称钱包" />
+
+        <View
+            android:id="@+id/space"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            app:layout_constraintBottom_toTopOf="@+id/wallet_address"
+            app:layout_constraintLeft_toLeftOf="@id/wallet_name"
+            app:layout_constraintTop_toBottomOf="@id/wallet_name" />
+
+        <TextView
+            android:id="@+id/wallet_address"
+            style="@style/Text.61646e.13"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/wallet_name"
+            app:layout_constraintTop_toBottomOf="@id/space"
+            tools:text="0xfasafasdfa56465" />
+
+        <TextView
+            android:id="@+id/delegate_detail"
+            style="@style/Text.105cfe.13"
+            android:layout_marginRight="10dp"
+            android:drawableRight="@mipmap/icon_right"
+            android:drawablePadding="2dp"
+            android:text="@string/details"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingLeft="12dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp">
+
+        <TextView
+            android:id="@+id/delegated"
+            style="@style/Text.898c9e.12"
+            android:layout_width="0dp"
+            android:gravity="center_vertical|left"
+            android:text="@string/msg_delegated"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/total_reward"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlHardcoded" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/delegated_amount"
+            style="@style/Text.000.14"
+            android:layout_width="0dp"
+            android:layout_marginTop="7dp"
+            android:gravity="center_vertical|left"
+            android:lines="1"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="14sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintLeft_toLeftOf="@id/delegated"
+            app:layout_constraintRight_toRightOf="@id/delegated"
+            app:layout_constraintTop_toBottomOf="@id/delegated"
+            tools:text="1,555.033678790336" />
+
+        <TextView
+            android:id="@+id/total_reward"
+            style="@style/Text.898c9e.12"
+            android:layout_width="0dp"
+            android:gravity="center_vertical|left"
+            android:text="@string/msg_total_reward"
+            app:layout_constraintLeft_toRightOf="@id/delegated"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlHardcoded" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/total_reward_amount"
+            style="@style/Text.000.14"
+            android:layout_width="0dp"
+            android:gravity="center_vertical|left"
+            android:lines="1"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="14sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintLeft_toLeftOf="@id/total_reward"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/delegated_amount"
+            tools:text="1,555.033678799"
+            tools:ignore="RtlHardcoded" />
+
+
+        <TextView
+            android:id="@+id/tv_unclaimed_reward"
+            style="@style/Text.898c9e.12"
+            android:layout_width="0dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical|left"
+            android:text="@string/msg_unclaimed_reward"
+            app:layout_constraintLeft_toLeftOf="@id/delegated_amount"
+            app:layout_constraintTop_toBottomOf="@id/delegated_amount"
+            tools:ignore="RtlHardcoded" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/unclaimed_reward_amount"
+            style="@style/Text.000.16"
+            android:layout_width="0dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center_vertical|left"
+            android:lines="1"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="16sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintLeft_toLeftOf="@id/tv_unclaimed_reward"
+            app:layout_constraintRight_toLeftOf="@+id/layout_claim_reward"
+            app:layout_constraintTop_toBottomOf="@id/tv_unclaimed_reward"
+            tools:ignore="RtlHardcoded"
+            tools:text="1,555.033678799033678799033678799033678799033678799" />
+
+
+        <LinearLayout
+            android:id="@+id/layout_claim_reward"
+            android:layout_width="67dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/shape_reclaim_reward_bg"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/unclaimed_reward_amount"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/unclaimed_reward_amount">
+
+            <TextView
+                android:id="@+id/claim_reward"
+                style="@style/Text.105cfe.13"
+                android:text="@string/msg_claim_reward"
+                android:visibility="gone" />
+
+            <com.platon.aton.widge.PendingAnimationLayout
+                android:id="@+id/layout_claim_reward_animation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:visibility="gone" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>
+
+

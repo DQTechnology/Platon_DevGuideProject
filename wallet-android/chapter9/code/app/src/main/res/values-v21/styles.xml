@@ -1,0 +1,11 @@
+<resources>
+
+    <style name="SplashTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/white</item>
+        <!--不让windowBackground延申到navigation bar区域-->
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+        <item name="android:windowAnimationStyle">@style/EnterNullAnimationStyle</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+</resources>

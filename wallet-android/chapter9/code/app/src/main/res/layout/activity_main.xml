@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".activity.MainActivity">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/mainPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            tools:ignore="InvalidId" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:background="@color/white"
+            android:divider="@drawable/divider_tab_bar"
+
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/assetBtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bg_nav_property" />
+
+                <TextView
+                    style="@style/Text.cdcdcd.12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/nav_property"
+                    android:textColor="@color/color_nav_text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/delegateBtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bg_nav_delegate" />
+
+                <TextView
+                    style="@style/Text.cdcdcd.12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/nav_delegate"
+                    android:textColor="@color/color_nav_text" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/meBtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bg_nav_me" />
+
+                <TextView
+                    style="@style/Text.cdcdcd.12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/nav_me"
+                    android:textColor="@color/color_nav_text" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:clickable="true"
+        android:id="@+id/right_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:background="@drawable/bg_right_sidebar"
+        android:paddingTop="40dp"
+        tools:ignore="RtlHardcoded"
+        android:orientation="vertical"
+        android:focusable="true">
+
+        <TextView
+            style="@style/Text.000000.18"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingLeft="@dimen/layout_space_10"
+            android:paddingRight="@dimen/layout_space_10"
+            android:text="@string/hdIndividualWallet"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/wallet_list"
+            style="@style/List_common_style"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
+

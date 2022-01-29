@@ -1,0 +1,89 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.digquant"
+        minSdkVersion 21
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    dataBinding {
+        //noinspection DataBindingWithoutKapt
+        enabled = true
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                //在这里修改apk文件名
+                outputFileName = "digging.apk"
+            }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    splits {
+        abi {
+            enable true
+            reset()
+            universalApk true
+        }
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+}
+
+dependencies {
+
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.google.android:flexbox:1.0.0'
+    implementation 'com.platon.client:core:0.13.0.2-android'
+    implementation 'com.platon.client:crypto:0.13.0.2-android'
+
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+
+
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+    implementation 'com.scwang.smart:refresh-layout-kernel:2.0.3'      //核心必须依赖
+    implementation 'com.scwang.smart:refresh-header-classics:2.0.3'    //经典刷新头
+    implementation 'com.scwang.smart:refresh-footer-classics:2.0.3'    //经典加载
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+
+    //noinspection GradleCompatible
+    implementation 'com.android.support:support-v4:24.2.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
+
+    implementation 'org.bitcoinj:bitcoinj-core:0.14.7'
+
+}

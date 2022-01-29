@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/bg_status_bar"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:drawablePadding="8dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:text="@string/delegate_node_detail"
+            android:textColor="@color/color_000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:drawableLeftCompat="@mipmap/icon_back_black" />
+    </LinearLayout>
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/refresher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.scwang.smart.refresh.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srlTextUpdate="yyyy-MM-dd HH:mm" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="154dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="10dp"
+                android:background="@mipmap/bg_validators_detail"
+                android:padding="20dp">
+
+                <com.platon.aton.widge.CircleImageView
+                    android:id="@+id/wallet_avatar"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/avatar_14"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/wallet_name"
+                    style="@style/Text.fff.16"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="3dp"
+                    android:ellipsize="end"
+                    android:gravity="left"
+                    android:includeFontPadding="false"
+                    android:lines="1"
+                    android:textStyle="bold"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintLeft_toRightOf="@id/wallet_avatar"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlHardcoded"
+                    tools:text="JiangJiangJiangJiangJiangJiangJiangJiangJiangJiangJiangJiangJiangJiang" />
+
+                <TextView
+                    android:id="@+id/wallet_address"
+                    style="@style/Text.fff.13"
+
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintLeft_toLeftOf="@id/wallet_name"
+                    app:layout_constraintTop_toBottomOf="@id/wallet_name"
+                    tools:text="0xs7e4dade....4deadedwda" />
+
+                <TextView
+                    android:id="@+id/avaliable_balance"
+                    style="@style/Text.f9fbff.13"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/msg_delegate_balance"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/wallet_address" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/avaliable_balance_amount"
+                    style="@style/Text.f9fbff.14"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="left|center_vertical"
+                    android:lines="1"
+                    android:paddingRight="10dp"
+                    android:text="— —"
+                    app:autoSizeMaxTextSize="14sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintLeft_toLeftOf="@id/avaliable_balance"
+                    app:layout_constraintRight_toLeftOf="@+id/total_delegated"
+                    app:layout_constraintTop_toBottomOf="@id/avaliable_balance"
+                    tools:ignore="RtlHardcoded,RtlSymmetry"
+                    tools:text="1,555.05555555555555555555555555555555555555555555555555555555555555555555550555555555555555555555555555555555555555555555555555555555555555555555" />
+
+
+                <TextView
+                    android:id="@+id/total_delegated"
+                    style="@style/Text.f9fbff.13"
+                    android:text="@string/total_delegated"
+                    app:layout_constraintLeft_toRightOf="@id/avaliable_balance"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/avaliable_balance" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/total_delegated_amount"
+                    style="@style/Text.f9fbff.14"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="4dp"
+                    android:gravity="left|center_vertical"
+                    android:lines="1"
+                    android:text="— —"
+                    app:autoSizeMaxTextSize="14sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintLeft_toLeftOf="@id/total_delegated"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/total_delegated"
+                    tools:ignore="RtlHardcoded"
+                    tools:text="1,555.0390" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.platon.aton.widge.EmptyRecyclerView
+                    android:id="@+id/record_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:id="@+id/emptyTip"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/color_f2f5fa"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/icon_no_data" />
+
+                    <TextView
+                        style="@style/Text.61646e.16"
+                        android:layout_marginTop="14dp"
+                        android:text="@string/no_delegation_information" />
+                </LinearLayout>
+
+
+            </FrameLayout>
+        </LinearLayout>
+
+
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_send_transaction_dialog">
+
+    <RelativeLayout
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            style="@style/Text.000.16"
+            android:layout_centerInParent="true"
+            android:text="@string/msg_claim_rewards"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:src="@mipmap/icon_shut_down" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/color_e4e7f3"
+        app:layout_constraintTop_toBottomOf="@id/layout_title" />
+
+    <TextView
+        android:id="@+id/claim_rewards_amount"
+        style="@style/Text.105cfe.22"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        tools:text="1,236,253.20235445" />
+
+    <TextView
+        android:id="@+id/claim_rewards_tips"
+        style="@style/Text.898c9e.12"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/msg_claim_reward_tips"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/claim_rewards_amount" />
+
+    <TextView
+        android:id="@+id/fee_amount_title"
+        style="@style/Text.61646e.14"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/fee"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/claim_rewards_tips" />
+
+    <TextView
+        android:id="@+id/fee_amount"
+        style="@style/Text.000.14"
+        android:layout_marginTop="30dp"
+        app:layout_constraintLeft_toLeftOf="@+id/claim_wallet"
+        app:layout_constraintTop_toBottomOf="@id/claim_rewards_tips"
+        tools:text="0.00035 LAT" />
+
+    <TextView
+        android:id="@+id/claim_wallet_title"
+        style="@style/Text.61646e.14"
+        android:layout_marginTop="20dp"
+        android:text="@string/msg_claim_wallet"
+        app:layout_constraintLeft_toLeftOf="@id/fee_amount_title"
+        app:layout_constraintTop_toBottomOf="@id/fee_amount_title" />
+
+    <TextView
+        android:id="@+id/claim_wallet"
+        style="@style/Text.000.14"
+        android:layout_width="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:lines="1"
+        android:textStyle="bold"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintLeft_toRightOf="@id/claim_wallet_title"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fee_amount"
+        tools:ignore="RtlHardcoded"
+        tools:text="" />
+
+
+    <LinearLayout
+        android:id="@+id/layout_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="@id/claim_wallet_title"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/claim_wallet"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            style="@style/Text.61646e.14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password"
+            android:textColor="@color/color_61646e" />
+
+        <EditText
+            android:id="@+id/password"
+            style="@style/Text.000.14"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_edittext_underline"
+            android:gravity="center|left"
+            android:hint="请输入钱包密码"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:paddingEnd="40dp"
+            android:singleLine="true"
+            android:textColorHint="@color/color_b6bbd0"
+            tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/balance_amount"
+        style="@style/Text.000.13"
+        android:layout_width="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:lines="1"
+        app:autoSizeMaxTextSize="13sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_password"
+        tools:text="Balance:0.00035 LAT" />
+
+    <com.platon.aton.widge.ShadowButton
+        android:id="@+id/sbtn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="42dp"
+        android:paddingLeft="6dp"
+        android:paddingTop="4dp"
+        android:paddingRight="6dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/balance_amount"
+        app:text="@string/confirm"
+        app:textAppearance="@style/MainButtonStyle"
+        app:textBackground="@drawable/bg_main_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

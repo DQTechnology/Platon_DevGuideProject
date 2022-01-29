@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/layout_item_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="80dp"
+    android:paddingLeft="16dp"
+    android:paddingTop="6dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="8dp">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/shape_item_assets_list"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/layout_transaction_status"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+<!--            <com.platon.aton.widge.PendingAnimationLayout-->
+<!--                android:id="@+id/layout_pending"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center_vertical"-->
+<!--                tools:ignore="MissingClass" />-->
+
+            <ImageView
+                android:id="@+id/transaction_statusIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:contentDescription="TODO" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/layout_transaction_status"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/transaction_status"
+                style="@style/Text.000.14"
+                android:ellipsize="middle"
+                android:gravity="center|left"
+                android:maxLength="23"
+                android:singleLine="true"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/transaction_time"
+                app:layout_constraintLeft_toRightOf="@id/layout_transaction_status"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:ignore="RtlHardcoded" />
+
+            <TextView
+                android:id="@+id/transaction_time"
+                style="@style/Text.999999.12"
+                android:layout_marginTop="4dp"
+                android:ellipsize="middle"
+                android:gravity="center|left"
+                android:singleLine="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@+id/tv_transaction_status"
+                app:layout_constraintTop_toBottomOf="@+id/tv_transaction_status"
+                tools:ignore="RtlHardcoded" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/transactionAmount"
+            style="@style/Text.000.15"
+            android:layout_width="172dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="12dp"
+            android:ellipsize="end"
+            android:gravity="center|right"
+            android:lines="1"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="15sp"
+            app:autoSizeMinTextSize="3sp"
+            app:autoSizeTextType="uniform"
+            tools:ignore="RtlHardcoded" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
