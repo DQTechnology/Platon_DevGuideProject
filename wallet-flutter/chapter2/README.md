@@ -10,6 +10,7 @@
     print("hrp: $hrp");
 ```
 结果如下图:
+
 ![1644851968(1)|429x240](./image/1.png) 
 
 
@@ -21,6 +22,7 @@
     print("gasPrice: ${AmountUtil.convertVonToLat(gasPrice)}");
 ```
 结果如下图:
+
 ![1644852187(1)|623x255](./image/2.png)  
 
 ### 获取当前块高–  platonBlockNumber
@@ -84,6 +86,7 @@
 ```
 笔者这里获取地址为:lat1tgu6pts6nhmneu5zhqly3rc83r6y6ecfmde03e的交易数量.
 结果如下图:
+
 ![1644854633(1)|690x182](./image/7.png) 
 
 交易数量为22, 在区块链的结构如下图:
