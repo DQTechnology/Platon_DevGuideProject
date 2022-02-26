@@ -379,7 +379,7 @@ class _ImportMnemonicStatefulWidgetState extends State {
 这里笔者只保存了mainnet的地址.
 
 
-**注: 笔者的Wallet功能,基于web3dart修改而来.**
+**注: Wallet功能,基于web3dart修改而来.**
 
 好啦本章内容就到这里啦, 下一章我们开始构建主页面啦.
 
